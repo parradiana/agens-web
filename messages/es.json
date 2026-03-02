@@ -1,0 +1,92 @@
+{
+  "Metadata": {
+    "title": "Agens | Agencia Creativa",
+    "description": "Generamos ideas que trascienden formatos y el paso del tiempo.",
+    "trabajos": {
+      "title": "Trabajos | Agens",
+      "description": "Proyectos seleccionados de Agens"
+    },
+    "nosotros": {
+      "title": "Nosotros | Agens",
+      "description": "Somos un equipo multidisciplinario que combina moda, arte y creatividad."
+    },
+    "contacto": {
+      "title": "Contacto | Agens",
+      "description": "Ponete en contacto con Agens"
+    },
+    "politicas": {
+      "title": "Políticas de privacidad | Agens",
+      "description": "Políticas de privacidad y términos de uso de Agens"
+    }
+  },
+  "Loading": {
+    "text": "EXPECT THE UNEXPECTED"
+  },
+  "Navigation": {
+    "home": "AgensAgency",
+    "works": "Trabajos",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "Footer": {
+    "rights": "© {year} Agens",
+    "policies": "Políticas",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "works": "Trabajos",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "HomePage": {
+    "sectionsLabel": "TRABAJOS SELECCIONADOS / CLIENTES",
+    "tagline": "Generar ideas que trascienden formatos y el paso del tiempo.",
+    "worksHeading": "Trabajos",
+    "clientsHeading": "Clientes",
+    "viewMore": "Ver más",
+    "cta": "Contactanos"
+  },
+  "WorksPage": {
+    "viewMore": "Ver más",
+    "filters": {
+      "all": "Todos"
+    }
+  },
+  "WorkDetailPage": {
+    "section": "Trabajos",
+    "development": "Desarrollo",
+    "rationale": "Racional",
+    "results": "Resultados",
+    "quote": "Quote",
+    "gallery": "galería",
+    "stills": "stills del comercial",
+    "credits": "ficha técnica",
+    "related": "Trabajos relacionados",
+    "backToWorks": "Volver a trabajos"
+  },
+  "AboutPage": {
+    "whoWeAreTitle": "Quiénes somos",
+    "whoWeAreParagraph1": "Somos una agencia nacida en 2025 que continúa el legado de la mítica Agens de los años 60´.",
+    "whoWeAreParagraph2": "Somos más que una agencia, somos un equipo multidisciplinario que combina: moda, arte y creatividad en búsqueda de resultados que no pasen desapercibidos.",
+    "ourStoryTitle": "Nuestra historia",
+    "ourStoryParagraph1": "En el año 2025 nace Agens, con el apoyo del grupo Newsan, juntando personas de diferentes disciplinas para crear un espacio diferente donde la creatividad es el corazón del negocio.",
+    "ourStoryParagraph2": "Actualmente la agencia trabaja con clientes tanto del grupo Newsan como externos.",
+    "cta": "Contactanos"
+  },
+  "ContactPage": {
+    "title": "Contacto",
+    "form": {
+      "name": "Nombre y apellido",
+      "company": "Empresa",
+      "email": "Mail",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar",
+      "sending": "Enviando...",
+      "success": "¡Gracias por contactarnos! Ya recibimos tu mensaje y en breve nos ponemos en contacto.",
+      "error": "Hubo un error al enviar. Intentá de nuevo."
+    }
+  },
+  "PoliciesPage": {
+    "title": "Políticas de privacidad"
+  }
+}

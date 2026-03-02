@@ -14,6 +14,9 @@ export async function sanityFetch<QueryResponse>({
   revalidate?: number | false;
   tags?: string[];
 }): Promise<QueryResponse> {
+  if (!client) {
+    return [] as unknown as QueryResponse;
+  }
   return client.fetch<QueryResponse>(query, params, {
     next: {
       revalidate: tags.length ? false : revalidate,

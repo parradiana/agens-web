@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-/*
-  TODO: Reemplazar con el embed link de Adobe Fonts cuando esté disponible.
-  Ejemplo: @import url("https://use.typekit.net/XXXXXX.css");
-*/
-
 @theme {
   /* ─── Colores ─────────────────────────────────────────── */
   --color-black:     #000000;

@@ -20,7 +20,7 @@ export async function Footer() {
             {t('policies')}
           </Link>
           <a
-            href="https://www.linkedin.com/company/agens-agency"
+            href="https://www.linkedin.com/company/agensagency/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"
@@ -28,7 +28,7 @@ export async function Footer() {
             {t('linkedin')}
           </a>
           <a
-            href="https://www.instagram.com/agensagency"
+            href="https://www.instagram.com/agens.agency"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"

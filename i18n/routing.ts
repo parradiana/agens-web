@@ -30,3 +30,4 @@ export const routing = defineRouting({
 
 export type AppLocale = (typeof routing.locales)[number];
 export type AppPathnames = keyof typeof routing.pathnames;
+export type StaticPathnames = Exclude<AppPathnames, `${string}[${string}]${string}`>;

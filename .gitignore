@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# cursor
+.cursor/rules/*.mdc
+
 # claude code
 .agents/
 skills-lock.json

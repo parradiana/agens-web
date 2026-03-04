@@ -17,10 +17,18 @@ export function LanguageSwitcher() {
   const otherLocale = routing.locales.find((l) => l !== locale) ?? 'en';
   const label = locale.toUpperCase() + '.';
 
+  // Variant styles based on current locale
+  // ES: border with transparent background, black text (Variant3)
+  // EN: black background, white text (Variant2)
+  const isEnglish = locale === 'en';
+  const buttonClasses = isEnglish
+    ? 'bg-black text-white'
+    : 'border-2 border-black border-solid text-black';
+
   return (
     <button
       onClick={() => handleLocaleChange(otherLocale)}
-      className="border-2 border-black px-[7px] py-[7px] text-[35px] leading-none font-normal cursor-pointer"
+      className={`inline-flex shrink-0 items-center justify-center gap-[10px] p-[7px] text-[16px] leading-none font-normal cursor-pointer transition-colors whitespace-nowrap md:text-[25px] ${buttonClasses}`}
       aria-label={`Switch to ${otherLocale.toUpperCase()}`}
     >
       {label}

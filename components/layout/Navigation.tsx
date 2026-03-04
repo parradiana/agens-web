@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, usePathname } from '@/i18n/navigation';
 import type { StaticPathnames } from '@/i18n/routing';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 
 interface NavItem {
   href: StaticPathnames;
@@ -28,13 +29,13 @@ export function Navigation({ items }: NavigationProps) {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-[35px] leading-[35px] transition-colors ${
+              className={`text-[25px] leading-normal transition-all ${
                 isActive
                   ? 'font-bold underline underline-offset-2'
-                  : 'font-normal'
+                  : 'font-normal hover:font-bold hover:underline hover:underline-offset-2'
               }`}
             >
-              {item.label}
+              {item.label.toUpperCase()}
             </Link>
           );
         })}
@@ -64,7 +65,7 @@ export function Navigation({ items }: NavigationProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 top-full w-full bg-off-white border-t border-black px-[50px] py-6 md:hidden"
+            className="absolute left-0 top-full w-full bg-off-white border-t border-black px-4 py-6 md:hidden"
           >
             <nav className="flex flex-col gap-6">
               {items.map((item) => {
@@ -80,6 +81,9 @@ export function Navigation({ items }: NavigationProps) {
                   </Link>
                 );
               })}
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
             </nav>
           </motion.div>
         )}

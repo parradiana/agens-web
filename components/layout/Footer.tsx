@@ -7,7 +7,7 @@ export async function Footer() {
 
   return (
     <footer className="w-full bg-black text-white min-h-[321px]">
-      <div className="mx-auto flex w-full max-w-[1728px] items-start justify-between px-[55px] py-12">
+      <div className="flex w-full flex-col gap-8 px-4 py-10 md:flex-row md:items-start md:justify-between md:px-[50px] md:py-12">
         {/* Col 1: Copyright */}
         <div className="text-[20px] leading-[31px] font-normal">
           <p>@{year}</p>

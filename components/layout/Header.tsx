@@ -1,8 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import { Navigation } from './Navigation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { Logo } from '@/components/ui/Logo';
 import type { StaticPathnames } from '@/i18n/routing';
-import { Link } from '@/i18n/navigation';
 
 export async function Header() {
   const t = await getTranslations('Navigation');
@@ -15,17 +15,15 @@ export async function Header() {
 
   return (
     <header className="fixed top-0 z-50 w-full bg-off-white">
-      <div className="relative mx-auto flex h-[95px] w-full max-w-[1728px] items-center justify-between px-[50px]">
-        {/* Logo */}
-        <Link href="/" className="flex items-baseline gap-0 text-[90px] leading-none">
-          <span className="font-bold">AGENS</span>
-          <span className="font-light">AGENCY</span>
-        </Link>
+      <div className="flex w-full items-center justify-between px-4 py-4 md:px-[50px] md:pb-[15px] md:pt-[50px]">
+        <Logo size="large" />
 
-        {/* Nav + Language switcher */}
-        <div className="flex items-center gap-8">
+        {/* Nav + Language switcher (desktop only) */}
+        <div className="flex items-center gap-[40px]">
           <Navigation items={navItems} />
-          <LanguageSwitcher />
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </header>

@@ -55,7 +55,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="pt-[95px]">{children}</main>
+          <main className="pt-[129px]">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

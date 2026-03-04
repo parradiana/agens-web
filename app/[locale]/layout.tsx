@@ -52,10 +52,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         {/* Adobe Fonts — Helvetica Neue */}
         <link rel="stylesheet" href="https://use.typekit.net/lwb3sra.css" />
       </head>
-      <body>
+      <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
           <Header />
-          <main className="pt-[129px]">{children}</main>
+          <main className="flex-1 pt-[129px]">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

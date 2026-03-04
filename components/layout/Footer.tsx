@@ -1,53 +1,86 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import type { StaticPathnames } from '@/i18n/routing';
+
+type FooterLinkProps =
+  | { href: StaticPathnames; children: React.ReactNode; external?: false }
+  | { href: string; children: React.ReactNode; external: true };
+
+function FooterLink(props: FooterLinkProps) {
+  const linkClasses = 'flex flex-col w-full';
+  const textClasses = 'text-[20px] leading-[23px] font-normal hover:underline transition-all';
+
+  if (props.external) {
+    return (
+      <div className={linkClasses}>
+        <div className="h-[1px] w-full bg-white mb-0" />
+        <a
+          href={props.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={textClasses}
+        >
+          {props.children}
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <div className={linkClasses}>
+      <div className="h-[1px] w-full bg-white mb-0" />
+      <Link href={props.href} className={textClasses}>
+        {props.children}
+      </Link>
+    </div>
+  );
+}
 
 export async function Footer() {
   const t = await getTranslations('Footer');
   const year = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-black text-white min-h-[321px]">
-      <div className="flex w-full flex-col gap-8 px-4 py-10 md:flex-row md:items-start md:justify-between md:px-[50px] md:py-12">
-        {/* Col 1: Copyright */}
-        <div className="text-[20px] leading-[31px] font-normal">
-          <p>@{year}</p>
+    <footer
+      className="w-full bg-black text-white"
+      style={{
+        clipPath: 'polygon(0 17%, 75% 17%, 76.5% 0, 100% 0, 100% 100%, 0 100%)',
+      }}
+    >
+      <div className="flex w-full flex-col gap-8 px-4 pb-12 pt-24 md:flex-row md:items-end md:gap-[151px] md:px-[50px] md:pt-[120px] md:pb-[50px]">
+        {/* Copyright */}
+        <div className="text-[20px] leading-[23px] font-normal shrink-0">
+          <p className="mb-0">@{year}</p>
           <p>AgensAgency</p>
         </div>
 
-        {/* Col 2: Legal + Social */}
-        <div className="flex flex-col gap-1 text-[20px] leading-[31px] font-normal">
-          <Link href="/politicas" className="hover:underline">
-            {t('policies')}
-          </Link>
-          <a
-            href="https://www.linkedin.com/company/agensagency/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            {t('linkedin')}
-          </a>
-          <a
-            href="https://www.instagram.com/agens.agency"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            {t('instagram')}
-          </a>
-        </div>
+        {/* Links Container */}
+        <div className="flex flex-col gap-8 md:flex-row md:gap-[20px] md:w-full">
+          {/* Left Column: Legal + Social */}
+          <div className="flex flex-col gap-[10px] md:w-1/2">
+            <FooterLink href="/politicas">
+              {t('policies')}
+            </FooterLink>
+            <FooterLink href="https://www.linkedin.com/company/agensagency/" external>
+              {t('linkedin')}
+            </FooterLink>
+            <FooterLink href="https://www.instagram.com/agens.agency" external>
+              {t('instagram')}
+            </FooterLink>
+          </div>
 
-        {/* Col 3: Nav */}
-        <div className="flex flex-col gap-1 text-[20px] leading-[31px] font-normal">
-          <Link href="/trabajos" className="hover:underline">
-            {t('works')}
-          </Link>
-          <Link href="/nosotros" className="hover:underline">
-            {t('about')}
-          </Link>
-          <Link href="/contacto" className="hover:underline">
-            {t('contact')}
-          </Link>
+          {/* Right Column: Navigation */}
+          <div className="flex flex-col gap-[10px] md:w-1/2">
+            <FooterLink href="/trabajos">
+              {t('works')}
+            </FooterLink>
+            <FooterLink href="/nosotros">
+              {t('about')}
+            </FooterLink>
+            <FooterLink href="/contacto">
+              {t('contact')}
+            </FooterLink>
+          </div>
         </div>
       </div>
     </footer>

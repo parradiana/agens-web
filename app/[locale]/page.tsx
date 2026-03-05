@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Hero } from '@/components/Hero';
 import { SelectedWorksIntro } from '@/components/sections/SelectedWorksIntro';
+import { SectionClients } from '@/components/sections/SectionClients';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,6 +24,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <Hero />
       <SelectedWorksIntro />
+      <SectionClients />
     </>
   );
 }

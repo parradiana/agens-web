@@ -30,7 +30,7 @@ export function SelectedWorksIntro() {
           type="button"
           onClick={() => {
             document
-              .getElementById('trabajos-grid')
+              .getElementById('clientes')
               ?.scrollIntoView({ behavior: 'smooth' });
           }}
           className="flex cursor-pointer flex-col items-center gap-2 bg-transparent"

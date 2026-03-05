@@ -48,7 +48,9 @@
     "worksHeading": "Work",
     "clientsHeading": "Brands",
     "viewMore": "View more",
-    "cta": "Get in Touch"
+    "cta": "Get in Touch",
+    "clientsTitle": "[clients]",
+    "clientsAriaLabel": "Our client logos"
   },
   "WorksPage": {
     "viewMore": "View more",

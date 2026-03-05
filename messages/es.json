@@ -48,7 +48,9 @@
     "worksHeading": "Trabajos",
     "clientsHeading": "Clientes",
     "viewMore": "Ver más",
-    "cta": "Contactanos"
+    "cta": "Contactanos",
+    "clientsTitle": "[clientes]",
+    "clientsAriaLabel": "Logos de nuestros clientes"
   },
   "WorksPage": {
     "viewMore": "Ver más",

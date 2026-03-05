@@ -42,7 +42,9 @@
   },
   "HomePage": {
     "sectionsLabel": "SELECTED WORKS / BRANDS",
-    "tagline": "To create ideas that transcend formats and stand the test of time.",
+    "selectedWorks": "[selected works]",
+    "scrollDown": "scroll down",
+    "tagline": "//TO CREATE IDEAS THAT TRANSCEND FORMATS AND STAND THE TEST OF TIME",
     "worksHeading": "Work",
     "clientsHeading": "Brands",
     "viewMore": "View more",

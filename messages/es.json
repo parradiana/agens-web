@@ -42,7 +42,9 @@
   },
   "HomePage": {
     "sectionsLabel": "TRABAJOS SELECCIONADOS / CLIENTES",
-    "tagline": "Generar ideas que trascienden formatos y el paso del tiempo.",
+    "selectedWorks": "[trabajos seleccionados]",
+    "scrollDown": "scroll down",
+    "tagline": "//GENERAR IDEAS QUE TRASCIENDEN FORMATOS Y EL PASO DEL TIEMPO",
     "worksHeading": "Trabajos",
     "clientsHeading": "Clientes",
     "viewMore": "Ver más",

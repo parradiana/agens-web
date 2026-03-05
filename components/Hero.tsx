@@ -7,6 +7,7 @@ export function Hero() {
 
   return (
     <section
+      id="hero"
       className="relative -mt-[129px] h-screen w-full overflow-hidden"
       aria-label="Hero"
     >
@@ -22,7 +23,16 @@ export function Hero() {
       />
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 md:bottom-[40px]">
+      <button
+        type="button"
+        onClick={() => {
+          document
+            .getElementById('trabajos-seleccionados')
+            ?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 bg-transparent md:bottom-[40px]"
+        aria-label={t('scrollDown')}
+      >
         <span className="font-sans text-[16px] font-normal text-white md:text-[20px]">
           {t('scrollDown')}
         </span>
@@ -42,7 +52,7 @@ export function Hero() {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </button>
     </section>
   );
 }

@@ -37,6 +37,9 @@
     "about": "About Us",
     "contact": "Contact"
   },
+  "Hero": {
+    "scrollDown": "scroll down"
+  },
   "HomePage": {
     "sectionsLabel": "SELECTED WORKS / BRANDS",
     "tagline": "To create ideas that transcend formats and stand the test of time.",

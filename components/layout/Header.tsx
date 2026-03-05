@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { Navigation } from './Navigation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { Logo } from '@/components/ui/Logo';
+import { HeaderShell } from './HeaderShell';
 import type { StaticPathnames } from '@/i18n/routing';
 
 export async function Header() {
@@ -14,7 +15,7 @@ export async function Header() {
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-off-white">
+    <HeaderShell>
       <div className="flex w-full items-center justify-between px-4 py-4 md:px-[50px] md:pb-[15px] md:pt-[50px]">
         <Logo size="large" />
 
@@ -26,6 +27,6 @@ export async function Header() {
           </div>
         </div>
       </div>
-    </header>
+    </HeaderShell>
   );
 }

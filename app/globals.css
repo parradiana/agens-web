@@ -27,3 +27,13 @@ body {
   background-color: var(--color-black);
   color:            var(--color-white);
 }
+
+/* ─── Header: transparent on homepage (hero) ─────────────── */
+header[data-hero="true"] {
+  color: var(--color-white);
+}
+
+header[data-hero="true"] button[class*="border-black"] {
+  border-color: var(--color-white);
+  color: var(--color-white);
+}

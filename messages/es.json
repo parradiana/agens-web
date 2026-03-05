@@ -37,6 +37,9 @@
     "about": "Nosotros",
     "contact": "Contacto"
   },
+  "Hero": {
+    "scrollDown": "scroll down"
+  },
   "HomePage": {
     "sectionsLabel": "TRABAJOS SELECCIONADOS / CLIENTES",
     "tagline": "Generar ideas que trascienden formatos y el paso del tiempo.",

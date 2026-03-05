@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { useTranslations } from 'next-intl';
+import { Hero } from '@/components/Hero';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -18,14 +18,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  return <HomeContent />;
-}
-
-function HomeContent() {
-  const t = useTranslations('HomePage');
-  return (
-    <section>
-      <p>{t('tagline')}</p>
-    </section>
-  );
+  return <Hero />;
 }

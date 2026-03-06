@@ -5,30 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 import { SectionFixedBar } from './SectionFixedBar';
-
-const CLIENT_LOGOS = [
-  { name: 'Pantene', src: '/clients/client-pantene.png' },
-  { name: 'Vick', src: '/clients/client-vick.png' },
-  { name: 'Pampers', src: '/clients/client-pampers.png' },
-  { name: 'Philco', src: '/clients/client-philco.png' },
-  { name: 'Noblex', src: '/clients/client-noblex.png' },
-  { name: 'Cabify', src: '/clients/client-cabify.png' },
-  { name: 'Oral-B', src: '/clients/client-oralb.png' },
-  { name: 'Siam Motos', src: '/clients/client-siammotos.png' },
-  { name: 'OPPO', src: '/clients/client-oppo.png' },
-  { name: 'H&S', src: '/clients/client-h&s.png' },
-  { name: 'Gillette', src: '/clients/client-gillette.png' },
-  { name: 'Always', src: '/clients/client-always.png' },
-  { name: 'Herbal Essences', src: '/clients/client-herbal.png' },
-  { name: 'Venus', src: '/clients/client-venus.png' },
-  { name: 'Bosch', src: '/clients/client-bosch.png' },
-  { name: 'Cher', src: '/clients/client-cher.png' },
-  { name: 'Allure', src: '/clients/client-allure.png' },
-  { name: 'Fixodent', src: '/clients/client-fixodent.png' },
-  { name: 'Downy', src: '/clients/client-downy.png' },
-  { name: 'ATMA', src: '/clients/client-atma.png' },
-  { name: 'Mariacher', src: '/clients/client-mariacher.png' },
-] as const;
+import { CLIENT_LOGOS } from '@/lib/assets';
 
 const ROW_1 = CLIENT_LOGOS.slice(0, 11);
 const ROW_2 = CLIENT_LOGOS.slice(11);

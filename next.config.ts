@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
       },
+      {
+        protocol: 'https',
+        hostname:
+          'grilv9at0nnk.compat.objectstorage.sa-saopaulo-1.oraclecloud.com',
+      },
     ],
   },
 };

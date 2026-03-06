@@ -1,42 +1,66 @@
-import type { SanityImageSource } from '@sanity/image-url';
-import type { PortableTextBlock } from 'next-sanity';
+import type { PortableTextBlock } from 'next-sanity'
+
+/* ── Shared primitives ─────────────────────────────────────── */
 
 export interface SanitySlug {
-  _type: 'slug';
-  current: string;
+  _type: 'slug'
+  current: string
 }
 
 export interface SanitySeo {
-  metaTitle?: string;
-  metaDescription?: string;
-  ogImage?: SanityImageSource;
+  metaTitle?: string
+  metaDescription?: string
 }
+
+export interface LocalizedString {
+  es: string
+  en: string
+}
+
+export interface LocalizedText {
+  es: string
+  en: string
+}
+
+export interface Credit {
+  _key: string
+  role: LocalizedString
+  names: string
+}
+
+/* ── Full Work document ────────────────────────────────────── */
 
 export interface Work {
-  _id: string;
-  title: string;
-  client: string;
-  slug: SanitySlug;
-  date: string; // e.g. "nov 2025 - Argentina"
-  excerpt?: string;
-  coverImage?: SanityImageSource;
-  rationale?: PortableTextBlock[];
-  results?: {
-    engagement?: string;
-    likes?: string;
-    views?: string;
-  };
-  quote?: string;
-  gallery?: SanityImageSource[];
-  videoUrl?: string;
-  credits?: PortableTextBlock[];
-  relatedWorks?: Pick<Work, '_id' | 'title' | 'client' | 'slug' | 'coverImage'>[];
-  seo?: SanitySeo;
+  slug: string
+  brand: string
+  title: LocalizedString
+  date?: string
+  featured?: boolean
+  order?: number
+  heroVideoUrl?: string
+  portadaUrl?: string
+  previewUrl?: string
+  racionalImageUrl?: string
+  racionalText?: LocalizedText
+  quote?: LocalizedString
+  galeriaUrls?: string[]
+  stillsUrls?: string[]
+  fichaTecnica?: Credit[]
 }
 
+/* ── Query projection types ────────────────────────────────── */
+
+export type FeaturedWork = Pick<Work, 'slug' | 'brand' | 'title' | 'portadaUrl' | 'previewUrl'>
+
+export type WorkListItem = Pick<Work, 'slug' | 'brand' | 'title' | 'previewUrl'>
+
+export type WorkDetail = Omit<Work, 'featured' | 'order'>
+
+/* ── Page (unchanged) ──────────────────────────────────────── */
+
 export interface Page {
-  _id: string;
-  title: string;
-  body?: PortableTextBlock[];
-  seo?: SanitySeo;
+  _id: string
+  title: string
+  body?: PortableTextBlock[]
+  seo?: SanitySeo
 }

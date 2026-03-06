@@ -2,34 +2,34 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import { sanityFetch } from '@/lib/sanity/fetch';
-import { workBySlugQuery, allWorksQuery } from '@/lib/sanity/queries';
-import type { Work } from '@/lib/sanity/types';
+import { WORK_DETAIL_QUERY, WORK_SLUGS_QUERY } from '@/lib/sanity/queries';
+import type { WorkDetail } from '@/lib/sanity/types';
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
 };
 
 export async function generateStaticParams() {
-  const works = await sanityFetch<Work[]>({
-    query: allWorksQuery,
+  const works = await sanityFetch<{ slug: string }[]>({
+    query: WORK_SLUGS_QUERY,
     tags: ['work'],
-  }).catch(() => [] as Work[]);
+  }).catch(() => []);
 
-  return works.map((work) => ({ id: work.slug.current }));
+  return works.map((w) => ({ id: w.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const work = await sanityFetch<Work | null>({
-    query: workBySlugQuery,
+  const work = await sanityFetch<WorkDetail | null>({
+    query: WORK_DETAIL_QUERY,
     params: { slug: id },
     tags: [`work:${id}`],
   }).catch(() => null);
 
   if (!work) return {};
   return {
-    title: work.seo?.metaTitle ?? work.title,
-    description: work.seo?.metaDescription ?? work.excerpt,
+    title: work.title.es,
+    description: work.racionalText?.es?.slice(0, 160),
   };
 }
 
@@ -37,8 +37,8 @@ export default async function TrabajoPage({ params }: Props) {
   const { locale, id } = await params;
   setRequestLocale(locale);
 
-  const work = await sanityFetch<Work | null>({
-    query: workBySlugQuery,
+  const work = await sanityFetch<WorkDetail | null>({
+    query: WORK_DETAIL_QUERY,
     params: { slug: id },
     tags: [`work:${id}`],
   }).catch(() => null);
@@ -48,8 +48,8 @@ export default async function TrabajoPage({ params }: Props) {
   return (
     <section>
       {/* WorkDetail — Fase 2 */}
-      <h1>{work.title}</h1>
-      <p>{work.client}</p>
+      <h1>{work.title.es}</h1>
+      <p>{work.brand}</p>
     </section>
   );
 }

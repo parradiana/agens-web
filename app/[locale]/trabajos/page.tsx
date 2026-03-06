@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { sanityFetch } from '@/lib/sanity/fetch';
-import { allWorksQuery } from '@/lib/sanity/queries';
-import type { Work } from '@/lib/sanity/types';
+import { ALL_WORKS_QUERY } from '@/lib/sanity/queries';
+import type { WorkListItem } from '@/lib/sanity/types';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -21,10 +21,11 @@ export default async function TrabajosPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const works = await sanityFetch<Work[]>({
-    query: allWorksQuery,
+  const works = await sanityFetch<WorkListItem[]>({
+    query: ALL_WORKS_QUERY,
     tags: ['work'],
-  }).catch(() => [] as Work[]);
+  }).catch(() => [] as WorkListItem[]);
+
 
   return (
     <section>

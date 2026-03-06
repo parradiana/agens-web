@@ -1,1 +1,12 @@
-export type { Work, Page, SanitySlug, SanitySeo } from '@/lib/sanity/types';
+export type {
+  Work,
+  FeaturedWork,
+  WorkListItem,
+  WorkDetail,
+  LocalizedString,
+  LocalizedText,
+  Credit,
+  Page,
+  SanitySlug,
+  SanitySeo,
+} from '@/lib/sanity/types'

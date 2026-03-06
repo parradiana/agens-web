@@ -1,43 +1,66 @@
-import { groq } from 'next-sanity';
+import { groq } from 'next-sanity'
 
-export const allWorksQuery = groq`
-  *[_type == "work"] | order(date desc) {
-    _id,
+// Home - trabajos destacados para la grilla
+export const FEATURED_WORKS_QUERY = groq`
+  *[_type == "work" && featured == true] | order(order asc) {
+    "slug": slug.current,
+    brand,
     title,
-    client,
-    slug,
-    date,
-    excerpt,
-    coverImage
+    portadaUrl,
+    previewUrl
   }
-`;
+`
 
-export const workBySlugQuery = groq`
+// /works - listado completo
+export const ALL_WORKS_QUERY = groq`
+  *[_type == "work"] | order(order asc) {
+    "slug": slug.current,
+    brand,
+    title,
+    previewUrl
+  }
+`
+
+// /works/[id] - detalle completo de un trabajo
+export const WORK_DETAIL_QUERY = groq`
   *[_type == "work" && slug.current == $slug][0] {
-    _id,
+    "slug": slug.current,
+    brand,
     title,
-    client,
-    slug,
     date,
-    excerpt,
-    coverImage,
-    rationale,
-    results,
+    heroVideoUrl,
+    portadaUrl,
+    racionalImageUrl,
+    racionalText,
     quote,
-    gallery,
-    videoUrl,
-    credits,
-    relatedWorks[]-> {
-      _id,
-      title,
-      client,
-      slug,
-      coverImage
-    },
-    seo
+    galeriaUrls,
+    stillsUrls,
+    fichaTecnica[] {
+      _key,
+      role,
+      names
+    }
   }
-`;
+`
 
+// Para el footer/nav del detalle: otros trabajos (excluyendo el actual)
+export const OTHER_WORKS_QUERY = groq`
+  *[_type == "work" && slug.current != $slug] | order(order asc) {
+    "slug": slug.current,
+    brand,
+    title,
+    previewUrl
+  }
+`
+
+// Todos los slugs (para generateStaticParams)
+export const WORK_SLUGS_QUERY = groq`
+  *[_type == "work" && defined(slug.current)] {
+    "slug": slug.current
+  }
+`
+
+// Page por slug
 export const pageBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     _id,
@@ -45,4 +68,4 @@ export const pageBySlugQuery = groq`
     body,
     seo
   }
-`;
+`

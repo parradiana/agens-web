@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { useContactModal } from '@/lib/contact-modal-context';
 
 export function SectionFixedBar() {
   const t = useTranslations('HomePage');
   const [isHovered, setIsHovered] = useState(false);
+  const { openModal } = useContactModal();
 
   return (
     <div className="absolute bottom-0 left-0 flex w-full items-center justify-between px-4 py-6 md:px-[50px] md:py-[35px]">
@@ -16,8 +17,8 @@ export function SectionFixedBar() {
       </p>
 
       {/* CTA */}
-      <Link
-        href="/contacto"
+      <button
+        onClick={openModal}
         className="relative ml-auto flex h-[40px] items-center md:h-[50px]"
         aria-label={t('cta')}
         onMouseEnter={() => setIsHovered(true)}
@@ -71,7 +72,7 @@ export function SectionFixedBar() {
             fill="black"
           />
         </svg>
-      </Link>
+      </button>
     </div>
   );
 }

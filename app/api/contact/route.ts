@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: 'Agens Web <onboarding@resend.dev>',
+      from: 'Agens Web <noreply@agens.agency>',
       to,
       replyTo: email,
       subject: subject || `Nuevo mensaje de ${name}`,

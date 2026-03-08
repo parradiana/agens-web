@@ -6,6 +6,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ContactModalProvider } from '@/lib/contact-modal-context';
+import { ContactModal } from '@/components/ui/ContactModal';
 import '../globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -54,9 +56,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="flex min-h-screen flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-1 pt-[129px]">{children}</main>
-          <Footer />
+          <ContactModalProvider>
+            <Header />
+            <main className="flex-1 pt-[129px]">{children}</main>
+            <Footer />
+            <ContactModal />
+          </ContactModalProvider>
         </NextIntlClientProvider>
       </body>
     </html>

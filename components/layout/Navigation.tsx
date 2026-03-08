@@ -5,10 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, usePathname } from '@/i18n/navigation';
 import type { StaticPathnames } from '@/i18n/routing';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { useContactModal } from '@/lib/contact-modal-context';
 
-interface NavItem {
+export interface NavItem {
   href: StaticPathnames;
   label: string;
+  isModalTrigger?: boolean;
 }
 
 interface NavigationProps {
@@ -18,6 +20,14 @@ interface NavigationProps {
 export function Navigation({ items }: NavigationProps) {
   const pathname = usePathname();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const { openModal } = useContactModal();
+
+  const linkClass = (isActive: boolean) =>
+    `text-[25px] leading-normal transition-all ${
+      isActive
+        ? 'font-bold underline underline-offset-2'
+        : 'font-normal hover:font-bold hover:underline hover:underline-offset-2'
+    }`;
 
   return (
     <>
@@ -25,15 +35,22 @@ export function Navigation({ items }: NavigationProps) {
       <nav className="hidden md:flex md:items-center md:gap-8">
         {items.map((item) => {
           const isActive = pathname === item.href;
+          if (item.isModalTrigger) {
+            return (
+              <button
+                key={item.href}
+                onClick={openModal}
+                className={linkClass(false)}
+              >
+                {item.label.toUpperCase()}
+              </button>
+            );
+          }
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`text-[25px] leading-normal transition-all ${
-                isActive
-                  ? 'font-bold underline underline-offset-2'
-                  : 'font-normal hover:font-bold hover:underline hover:underline-offset-2'
-              }`}
+              className={linkClass(isActive)}
             >
               {item.label.toUpperCase()}
             </Link>
@@ -70,6 +87,17 @@ export function Navigation({ items }: NavigationProps) {
             <nav className="flex flex-col gap-6">
               {items.map((item) => {
                 const isActive = pathname === item.href;
+                if (item.isModalTrigger) {
+                  return (
+                    <button
+                      key={item.href}
+                      onClick={() => { setIsMobileOpen(false); openModal(); }}
+                      className={`text-2xl text-left ${isActive ? 'font-bold underline' : 'font-normal'}`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                }
                 return (
                   <Link
                     key={item.href}

@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { StaticPathnames } from '@/i18n/routing';
+import { FooterContactButton } from './FooterContactButton';
 
 type FooterLinkProps =
   | { href: StaticPathnames; children: React.ReactNode; external?: false }
@@ -77,9 +78,7 @@ export async function Footer() {
             <FooterLink href="/nosotros">
               {t('about')}
             </FooterLink>
-            <FooterLink href="/contacto">
-              {t('contact')}
-            </FooterLink>
+            <FooterContactButton label={t('contact')} />
           </div>
         </div>
       </div>

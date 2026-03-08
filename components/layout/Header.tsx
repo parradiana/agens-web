@@ -1,17 +1,16 @@
 import { getTranslations } from 'next-intl/server';
-import { Navigation } from './Navigation';
+import { Navigation, type NavItem } from './Navigation';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { Logo } from '@/components/ui/Logo';
 import { HeaderShell } from './HeaderShell';
-import type { StaticPathnames } from '@/i18n/routing';
 
 export async function Header() {
   const t = await getTranslations('Navigation');
 
-  const navItems: { href: StaticPathnames; label: string }[] = [
+  const navItems: NavItem[] = [
     { href: '/trabajos', label: t('works') },
     { href: '/nosotros', label: t('about') },
-    { href: '/contacto', label: t('contact') },
+    { href: '/contacto', label: t('contact'), isModalTrigger: true },
   ];
 
   return (

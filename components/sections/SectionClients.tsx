@@ -39,7 +39,7 @@ export function SectionClients() {
                   alt={logo.name}
                   width={140}
                   height={70}
-                  className="h-[50px] md:h-[70px] w-auto object-contain"
+                  className="h-[35px] md:h-[50px] w-auto object-contain"
                 />
               </div>
             ))}
@@ -53,7 +53,7 @@ export function SectionClients() {
                   alt={logo.name}
                   width={140}
                   height={70}
-                  className="h-[50px] md:h-[70px] w-auto object-contain"
+                  className="h-[35px] md:h-[50px] w-auto object-contain"
                 />
               </div>
             ))}

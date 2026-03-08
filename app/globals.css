@@ -33,7 +33,7 @@ header[data-hero="true"] {
   color: var(--color-white);
 }
 
-header[data-hero="true"] button[class*="border-black"] {
+header[data-hero="true"] button[class*="border-black"]:not([data-mobile-menu] *) {
   border-color: var(--color-white);
   color: var(--color-white);
 }

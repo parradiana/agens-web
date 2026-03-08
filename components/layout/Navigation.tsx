@@ -78,11 +78,12 @@ export function Navigation({ items }: NavigationProps) {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
+            data-mobile-menu
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 top-full w-full bg-off-white border-t border-black px-4 py-6 md:hidden"
+            className="absolute left-0 top-full w-full bg-off-white border-t border-black px-4 py-6 text-black md:hidden"
           >
             <nav className="flex flex-col gap-6">
               {items.map((item) => {

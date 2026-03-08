@@ -1,6 +1,5 @@
-import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
-import { VIDEO_LOADING_GIF } from '@/lib/assets';
+import { ImageWithSkeleton } from '@/components/ui/ImageWithSkeleton';
 
 interface WorkCardProps {
   slug: string;
@@ -24,22 +23,18 @@ export function WorkCard({
         className="flex flex-col gap-4 overflow-hidden md:flex-row md:items-end md:gap-5"
       >
         {/* Portada image */}
-        <div
-          className="relative aspect-[10/3] w-full overflow-hidden bg-cover bg-center md:w-[667px] md:shrink-0"
-          style={{ backgroundImage: `url(${VIDEO_LOADING_GIF})` }}
-        >
-          {portadaUrl ? (
-            <Image
-              src={portadaUrl}
-              alt={`${brand} — ${title}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 667px"
-            />
-          ) : (
-            <div className="size-full bg-gray" />
-          )}
-        </div>
+        {portadaUrl ? (
+          <ImageWithSkeleton
+            src={portadaUrl}
+            alt={`${brand} — ${title}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 667px"
+            wrapperClassName="aspect-[10/3] w-full md:w-[667px] md:shrink-0"
+          />
+        ) : (
+          <div className="aspect-[10/3] w-full bg-gray md:w-[667px] md:shrink-0" />
+        )}
 
         {/* Brand + title */}
         <div className="flex flex-1 flex-col gap-1 md:gap-[15px]">

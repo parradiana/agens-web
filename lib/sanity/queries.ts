@@ -13,10 +13,11 @@ export const FEATURED_WORKS_QUERY = groq`
 
 // /works - listado completo
 export const ALL_WORKS_QUERY = groq`
-  *[_type == "work"] | order(order asc) {
+  *[_type == "work"] | order(_createdAt desc) {
     "slug": slug.current,
     brand,
     title,
+    portadaUrl,
     previewUrl
   }
 `

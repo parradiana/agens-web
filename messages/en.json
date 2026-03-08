@@ -54,6 +54,7 @@
   },
   "WorksPage": {
     "viewMore": "View more",
+    "empty": "No works found.",
     "filters": {
       "all": "All"
     }

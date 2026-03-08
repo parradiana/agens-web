@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { sanityFetch } from '@/lib/sanity/fetch';
 import { ALL_WORKS_QUERY } from '@/lib/sanity/queries';
 import type { WorkListItem } from '@/lib/sanity/types';
+import { Container } from '@/components/ui/Container';
+import { WorkCard } from '@/components/sections/WorkCard';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -21,18 +23,36 @@ export default async function TrabajosPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations({ locale, namespace: 'WorksPage' });
+
   const works = await sanityFetch<WorkListItem[]>({
     query: ALL_WORKS_QUERY,
     tags: ['work'],
   }).catch(() => [] as WorkListItem[]);
 
-
   return (
     <section>
-      {/* WorkPreviewList — Fase 2 */}
-      {works.length === 0 && (
-        <p>Trabajos próximamente.</p>
-      )}
+      <Container>
+        {works.length > 0 ? (
+          <div className="divide-y divide-gray">
+            {works.map((work) => (
+              <div key={work.slug} className="py-5">
+                <WorkCard
+                  slug={work.slug}
+                  brand={work.brand}
+                  title={work.title[locale as 'es' | 'en']}
+                  portadaUrl={work.portadaUrl}
+                  viewMoreLabel={t('viewMore')}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="py-20 text-center font-sans text-xl text-black">
+            {t('empty')}
+          </p>
+        )}
+      </Container>
     </section>
   );
 }

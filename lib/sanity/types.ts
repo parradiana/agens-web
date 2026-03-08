@@ -52,7 +52,7 @@ export interface Work {
 
 export type FeaturedWork = Pick<Work, 'slug' | 'brand' | 'title' | 'portadaUrl' | 'previewUrl'>
 
-export type WorkListItem = Pick<Work, 'slug' | 'brand' | 'title' | 'previewUrl'>
+export type WorkListItem = Pick<Work, 'slug' | 'brand' | 'title' | 'portadaUrl' | 'previewUrl'>
 
 export type WorkDetail = Omit<Work, 'featured' | 'order'>
 

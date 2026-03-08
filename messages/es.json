@@ -54,6 +54,7 @@
   },
   "WorksPage": {
     "viewMore": "Ver más",
+    "empty": "No se han encontrado trabajos.",
     "filters": {
       "all": "Todos"
     }

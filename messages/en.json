@@ -74,7 +74,9 @@
   "AboutPage": {
     "whoWeAreTitle": "Who We Are",
     "whoWeAreParagraph1": "We are an agency founded in 2025 that continues the legacy of the legendary Agens from the 1960s.",
-    "whoWeAreParagraph2": "We are more than an agency — we are a multidisciplinary team that combines fashion, art, and creativity in search of results that do not go unnoticed.",
+    "whoWeAreParagraph2Before": "We are more than an agency — ",
+    "whoWeAreParagraph2Bold": "we are a multidisciplinary team",
+    "whoWeAreParagraph2After": " that combines fashion, art, and creativity in search of results that do not go unnoticed.",
     "ourStoryTitle": "Our Story",
     "ourStoryParagraph1": "In 2025, Agens was born with the support of the Newsan Group, bringing together people from different disciplines to create a different kind of space where creativity is the heart of the business.",
     "ourStoryParagraph2": "Today, the agency works with both Newsan Group clients and external clients.",

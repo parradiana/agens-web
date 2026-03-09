@@ -97,6 +97,57 @@
     }
   },
   "PoliciesPage": {
-    "title": "Políticas de privacidad"
+    "title": "POLÍTICAS DE PRIVACIDAD",
+    "exit": "Salir",
+    "lastUpdated": "Última actualización: 20 de febrero de 2026",
+    "intro": "En Agens nos tomamos en serio la privacidad. Esta Política explica qué datos recopilamos cuando visitás nuestro sitio, para qué los usamos y cuáles son tus derechos.",
+    "introAccept": "Al navegar en nuestro sitio web aceptás las prácticas descriptas a continuación.",
+    "section1": {
+      "title": "1. Quiénes somos",
+      "content": "Agens es una agencia de publicidad y creatividad. Somos responsables del tratamiento de los datos personales que se recopilen a través de nuestro sitio web.\n\nSi tenés dudas sobre esta Política, podés escribirnos a: privacidad@agens.com"
+    },
+    "section2": {
+      "title": "2. Qué información recopilamos",
+      "content1Title": "2.1 Información que nos brindás",
+      "content1": "Recopilamos los datos que nos compartís voluntariamente cuando:\n- Completás un formulario de contacto\n- Nos enviás un email\n- Te suscribís a novedades\n\nEstos datos pueden incluir:\n- Nombre y apellido\n- Email\n- Teléfono\n- Empresa\n- Cargo\n- Cualquier otro dato que decidas enviarnos",
+      "content2Title": "2.2 Información que se recopila automáticamente",
+      "content2": "Cuando navegás en nuestro sitio, también podemos obtener cierta información técnica, como por ejemplo:\n- Dirección IP\n- Tipo de navegador\n- Dispositivo utilizado\n- Páginas visitadas\n- Tiempo de navegación\n\nEsto se realiza a través de cookies y herramientas de análisis."
+    },
+    "section3": {
+      "title": "3. Para qué usamos la información",
+      "content": "Utilizamos los datos para:\n- Responder consultas\n- Contactar potenciales clientes\n- Enviar información sobre nuestros servicios (si nos diste tu consentimiento)\n- Mejorar la experiencia del sitio\n- Analizar el uso de la web para optimizar contenidos\n- Cumplir obligaciones legales\n\nNo vendemos ni comercializamos datos personales."
+    },
+    "section4": {
+      "title": "4. Cookies",
+      "content": "Nuestro sitio puede utilizar cookies para mejorar la navegación y entender cómo se utiliza la web.\n\nPodés configurar tu navegador para rechazar o eliminar cookies en cualquier momento. Tené en cuenta que algunas funciones del sitio podrían no funcionar correctamente si las desactivás."
+    },
+    "section5": {
+      "title": "5. Con quién compartimos la información",
+      "content": "Podemos compartir datos únicamente cuando sea necesario con:\n- Proveedores tecnológicos (hosting, plataformas de email, herramientas de análisis)\n- Autoridades públicas, si la ley lo exige\n\nSiempre procuramos que quienes acceden a la información mantengan estándares adecuados de confidencialidad y seguridad."
+    },
+    "section6": {
+      "title": "6. Cuánto tiempo conservamos los datos",
+      "content": "Conservamos los datos personales solo durante el tiempo necesario para cumplir con la finalidad para la cual fueron recopilados o mientras exista una relación comercial o potencial."
+    },
+    "section7": {
+      "title": "7. Seguridad de la información",
+      "content": "Adoptamos medidas técnicas y organizativas razonables para proteger los datos contra accesos no autorizados, pérdida o uso indebido.\n\nDe todos modos, ningún sistema es completamente infalible."
+    },
+    "section8": {
+      "title": "8. Enlaces a otros sitios",
+      "content": "Nuestro sitio puede contener enlaces a páginas de terceros. No somos responsables por sus prácticas de privacidad. Te recomendamos revisar sus propias políticas."
+    },
+    "section9": {
+      "title": "9. Tus derechos",
+      "content": "De acuerdo con la Ley 25.326 de Protección de Datos Personales de la República Argentina, podés:\n- Acceder a tus datos\n- Solicitar su rectificación o actualización\n- Solicitar su eliminación\n\nLa Dirección Nacional de Protección de Datos Personales es el órgano de control de esta ley.\n\nPara ejercer tus derechos, escribinos a: privacidad@agens.com"
+    },
+    "section10": {
+      "title": "10. Menores de edad",
+      "content": "Nuestro sitio no está dirigido a menores de 18 años. No recopilamos intencionalmente datos de menores."
+    },
+    "section11": {
+      "title": "11. Cambios en esta Política",
+      "content": "Podemos actualizar esta Política cuando sea necesario. La versión vigente estará siempre publicada en nuestro sitio con su fecha de actualización."
+    }
   }
 }

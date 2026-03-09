@@ -8,6 +8,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ContactModalProvider } from '@/lib/contact-modal-context';
 import { ContactModal } from '@/components/ui/ContactModal';
+import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import '../globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -58,6 +59,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider messages={messages}>
           <ContactModalProvider>
             <Header />
+            <ScrollToTop />
             <main className="flex-1 pt-[129px]">{children}</main>
             <Footer />
             <ContactModal />

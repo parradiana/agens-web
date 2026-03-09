@@ -1,5 +1,3 @@
-import type { PortableTextBlock } from 'next-sanity'
-
 /* ── Shared primitives ─────────────────────────────────────── */
 
 export interface SanitySlug {
@@ -56,11 +54,11 @@ export type WorkListItem = Pick<Work, 'slug' | 'brand' | 'title' | 'portadaUrl' 
 
 export type WorkDetail = Omit<Work, 'featured' | 'order'>
 
-/* ── Page (unchanged) ──────────────────────────────────────── */
+/* ── Page (placeholder — Sanity integration pendiente) ──── */
 
 export interface Page {
   _id: string
   title: string
-  body?: PortableTextBlock[]
+  body?: unknown[]
   seo?: SanitySeo
 }

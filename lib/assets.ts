@@ -13,6 +13,10 @@ export function bucketUrl(path: string): string {
   return `${BUCKET_BASE}/${path}`;
 }
 
+/* ── Home ──────────────────────────────────────────────────────── */
+
+export const HERO_REEL_VIDEO = bucketUrl('hero-reel-home.mp4');
+
 /* ── Loading ───────────────────────────────────────────────────── */
 
 export const VIDEO_LOADING_GIF = bucketUrl('loading/video-loading.gif');

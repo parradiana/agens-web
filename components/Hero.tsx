@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { HERO_REEL_VIDEO } from '@/lib/assets';
 
 export function Hero() {
   const t = useTranslations('Hero');
@@ -14,7 +15,7 @@ export function Hero() {
       {/* Background video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/hero-agens.mp4"
+        src={HERO_REEL_VIDEO}
         autoPlay
         muted
         loop

@@ -7,6 +7,7 @@ import type { WorkDetail } from '@/lib/sanity/types';
 import { WorkDetailHero } from '@/components/sections/WorkDetailHero';
 import { WorkDetailRacional } from '@/components/sections/WorkDetailRacional';
 import { WorkDetailGaleria } from '@/components/sections/WorkDetailGaleria';
+import { WorkDetailStills } from '@/components/sections/WorkDetailStills';
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -77,6 +78,13 @@ export default async function TrabajoPage({ params }: Props) {
         <WorkDetailGaleria
           galeriaUrls={work.galeriaUrls}
           quote={work.quote?.[lang]}
+          brand={work.brand}
+        />
+      )}
+
+      {work.stillsUrls && work.stillsUrls.length > 0 && (
+        <WorkDetailStills
+          stillsUrls={work.stillsUrls}
           brand={work.brand}
         />
       )}

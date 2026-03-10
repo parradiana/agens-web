@@ -6,6 +6,7 @@ import { WORK_DETAIL_QUERY, WORK_SLUGS_QUERY } from '@/lib/sanity/queries';
 import type { WorkDetail } from '@/lib/sanity/types';
 import { WorkDetailHero } from '@/components/sections/WorkDetailHero';
 import { WorkDetailRacional } from '@/components/sections/WorkDetailRacional';
+import { WorkDetailGaleria } from '@/components/sections/WorkDetailGaleria';
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -71,6 +72,14 @@ export default async function TrabajoPage({ params }: Props) {
         racionalText={work.racionalText?.[lang]}
         locale={locale}
       />
+
+      {work.galeriaUrls && work.galeriaUrls.length > 0 && (
+        <WorkDetailGaleria
+          galeriaUrls={work.galeriaUrls}
+          quote={work.quote?.[lang]}
+          brand={work.brand}
+        />
+      )}
     </>
   );
 }

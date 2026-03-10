@@ -21,7 +21,7 @@ export async function Header() {
         {/* Nav + Language switcher (desktop only) */}
         <div className="flex items-center gap-[40px]">
           <Navigation items={navItems} />
-          <div className="hidden md:block">
+          <div className="hidden xl:block">
             <LanguageSwitcher />
           </div>
         </div>

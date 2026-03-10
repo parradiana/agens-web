@@ -32,7 +32,7 @@ export function Navigation({ items }: NavigationProps) {
   return (
     <>
       {/* Desktop */}
-      <nav className="hidden md:flex md:items-center md:gap-8">
+      <nav className="hidden xl:flex xl:items-center xl:gap-8">
         {items.map((item) => {
           const isActive = pathname === item.href;
           if (item.isModalTrigger) {
@@ -60,7 +60,7 @@ export function Navigation({ items }: NavigationProps) {
 
       {/* Mobile toggle */}
       <button
-        className="md:hidden"
+        className="xl:hidden"
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         aria-label="Toggle menu"
       >
@@ -83,7 +83,7 @@ export function Navigation({ items }: NavigationProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-0 top-full w-full bg-off-white border-t border-black px-4 py-6 text-black md:hidden"
+            className="absolute left-0 top-full w-full bg-off-white border-t border-black px-4 py-6 text-black xl:hidden"
           >
             <nav className="flex flex-col gap-6">
               {items.map((item) => {

@@ -8,6 +8,7 @@ import { WorkDetailHero } from '@/components/sections/WorkDetailHero';
 import { WorkDetailRacional } from '@/components/sections/WorkDetailRacional';
 import { WorkDetailGaleria } from '@/components/sections/WorkDetailGaleria';
 import { WorkDetailStills } from '@/components/sections/WorkDetailStills';
+import { WorkDetailCredits } from '@/components/sections/WorkDetailCredits';
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -86,6 +87,13 @@ export default async function TrabajoPage({ params }: Props) {
         <WorkDetailStills
           stillsUrls={work.stillsUrls}
           brand={work.brand}
+        />
+      )}
+
+      {work.fichaTecnica && work.fichaTecnica.length > 0 && (
+        <WorkDetailCredits
+          fichaTecnica={work.fichaTecnica}
+          locale={locale}
         />
       )}
     </>

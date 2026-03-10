@@ -84,31 +84,8 @@ export function ContactModal() {
               className="relative w-full max-w-[912px] max-h-[90vh] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* SVG background */}
-              <svg
-                viewBox="0 0 912 811"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute inset-0 w-full h-full"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden="true"
-              >
-                <path d="M912 810.5H0V66.5H863L912 0V810.5Z" fill="black" />
-                <g clipPath="url(#modal-clip)">
-                  <path d="M339.808 258.18H462.831L394.706 378.389L431.483 457.95H431.191L359.639 588.898H359.517L465.142 810.5H381.416L370.531 788.437H247.509L315.634 668.226L278.963 588.898H278.952L278.958 588.886L278.856 588.666H279.08L351.427 457.95H350.933L245.197 236.117H328.923L339.808 258.18Z" fill="#101010" />
-                  <path d="M472.977 610.73H595.999L527.875 730.94L564.652 810.5H484.102L378.366 588.666H462.093L472.977 610.73Z" fill="#101010" />
-                  <path d="M232.097 753.13H148.369L137.485 731.066H14.4624L82.5879 610.857L45.8107 531.297H126.36L232.097 753.13Z" fill="#101010" />
-                  <path d="M200.165 469.618H323.189L255.063 589.828L291.84 669.388H211.291L105.554 447.554H189.281L200.165 469.618Z" fill="#101010" />
-                  <path d="M595.999 599.525H512.273L501.388 577.462H378.366L446.492 457.252L409.713 377.692H490.264L595.999 599.525Z" fill="#101010" />
-                  <path fillRule="evenodd" clipRule="evenodd" d="M150.542 316.013H150.715L150.622 316.179L150.715 316.375H150.511L82.5899 436.223L119.368 515.783H38.8177L-66.7457 294.311H-66.9199L-66.8245 294.146L-66.9199 293.949H-66.7135L1.20657 174.101L-35.5706 94.5405H44.9788L150.542 316.013ZM27.6933 316.013H66.8095L56.1042 294.311H16.987L27.6933 316.013Z" fill="#101010" />
-                  <path d="M125.72 36.5635H248.743L180.618 156.774L227.72 258.12L323.188 458.412H239.461L228.576 436.349H105.554L173.68 316.139L127.148 215.991L31.1089 14.5H114.835L125.72 36.5635Z" fill="#101010" />
-                </g>
-                <defs>
-                  <clipPath id="modal-clip">
-                    <rect width="596" height="744" fill="white" transform="translate(0 66.5)" />
-                  </clipPath>
-                </defs>
-              </svg>
+              {/* Background */}
+              <div className="absolute inset-0 bg-black" aria-hidden="true" />
 
               {/* Close button */}
               <button

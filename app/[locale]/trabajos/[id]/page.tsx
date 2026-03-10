@@ -5,6 +5,7 @@ import { sanityFetch } from '@/lib/sanity/fetch';
 import { WORK_DETAIL_QUERY, WORK_SLUGS_QUERY } from '@/lib/sanity/queries';
 import type { WorkDetail } from '@/lib/sanity/types';
 import { WorkDetailHero } from '@/components/sections/WorkDetailHero';
+import { WorkDetailRacional } from '@/components/sections/WorkDetailRacional';
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -20,17 +21,22 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params;
+  const { locale, id } = await params;
+  const lang = locale as 'es' | 'en';
+
   const work = await sanityFetch<WorkDetail | null>({
     query: WORK_DETAIL_QUERY,
     params: { slug: id },
     tags: [`work:${id}`],
   }).catch(() => null);
 
-  if (!work) return {};
+  if (!work) {
+    return {};
+  }
+
   return {
-    title: work.title.es,
-    description: work.racionalText?.es?.slice(0, 160),
+    title: work.title[lang],
+    description: work.racionalText?.[lang]?.slice(0, 160),
   };
 }
 
@@ -44,7 +50,9 @@ export default async function TrabajoPage({ params }: Props) {
     tags: [`work:${id}`],
   }).catch(() => null);
 
-  if (!work) notFound();
+  if (!work) {
+    notFound();
+  }
 
   const lang = locale as 'es' | 'en';
 
@@ -54,6 +62,14 @@ export default async function TrabajoPage({ params }: Props) {
         heroVideoUrl={work.heroVideoUrl}
         portadaUrl={work.portadaUrl}
         alt={`${work.brand} — ${work.title[lang]}`}
+      />
+
+      <WorkDetailRacional
+        racionalImageUrl={work.racionalImageUrl}
+        date={work.date}
+        brand={work.brand}
+        racionalText={work.racionalText?.[lang]}
+        locale={locale}
       />
     </>
   );

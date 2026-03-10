@@ -1,25 +1,29 @@
 'use client';
 
+import { useParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import type { StaticPathnames } from '@/i18n/routing';
+import type { AppPathnames } from '@/i18n/routing';
 
 export function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const params = useParams();
 
   function handleLocaleChange(newLocale: string) {
-    router.replace(pathname as StaticPathnames, { locale: newLocale });
+    router.replace(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      { pathname: pathname as AppPathnames, params: params as any },
+      { locale: newLocale },
+    );
   }
 
   const otherLocale = routing.locales.find((l) => l !== locale) ?? 'en';
   const label = locale.toUpperCase() + '.';
 
-  // Variant styles based on current locale
-  // ES: border with transparent background, black text (Variant3)
-  // EN: black background, white text (Variant2)
+
   const isEnglish = locale === 'en';
   const buttonClasses = isEnglish
     ? 'bg-black text-white'

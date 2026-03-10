@@ -3,31 +3,37 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from '@/i18n/navigation';
 
+interface HeroState {
+  pathname: string;
+  isTransparent: boolean;
+}
+
 interface HeaderShellProps {
   children: React.ReactNode;
 }
 
 export function HeaderShell({ children }: HeaderShellProps) {
   const pathname = usePathname();
-  const isHome = pathname === '/';
-  const [heroVisible, setHeroVisible] = useState(true);
+  const [state, setState] = useState<HeroState>({ pathname, isTransparent: false });
+
+  if (state.pathname !== pathname) {
+    setState({ pathname, isTransparent: false });
+  }
 
   useEffect(() => {
-    if (!isHome) return;
-
     const hero = document.getElementById('hero');
     if (!hero) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => setHeroVisible(entry.isIntersecting),
+      ([entry]) => setState((prev) => ({ ...prev, isTransparent: entry.isIntersecting })),
       { threshold: 0.1 }
     );
 
     observer.observe(hero);
     return () => observer.disconnect();
-  }, [isHome]);
+  }, [pathname]);
 
-  const isTransparent = isHome && heroVisible;
+  const isTransparent = state.isTransparent;
 
   return (
     <header

@@ -4,6 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { sanityFetch } from '@/lib/sanity/fetch';
 import { WORK_DETAIL_QUERY, WORK_SLUGS_QUERY } from '@/lib/sanity/queries';
 import type { WorkDetail } from '@/lib/sanity/types';
+import { WorkDetailHero } from '@/components/sections/WorkDetailHero';
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -45,11 +46,15 @@ export default async function TrabajoPage({ params }: Props) {
 
   if (!work) notFound();
 
+  const lang = locale as 'es' | 'en';
+
   return (
-    <section>
-      {/* WorkDetail — Fase 2 */}
-      <h1>{work.title.es}</h1>
-      <p>{work.brand}</p>
-    </section>
+    <>
+      <WorkDetailHero
+        heroVideoUrl={work.heroVideoUrl}
+        portadaUrl={work.portadaUrl}
+        alt={`${work.brand} — ${work.title[lang]}`}
+      />
+    </>
   );
 }

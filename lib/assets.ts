@@ -17,6 +17,8 @@ export function bucketUrl(path: string): string {
 
 export const HERO_REEL_VIDEO = bucketUrl('hero-reel-home.mp4');
 
+export const ABOUT_GIF = bucketUrl('gif-nosotros.gif');
+
 /* ── Loading ───────────────────────────────────────────────────── */
 
 export const VIDEO_LOADING_GIF = bucketUrl('loading/video-loading.gif');

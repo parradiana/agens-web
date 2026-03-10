@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { useContactModal } from '@/lib/contact-modal-context';
+import { ABOUT_GIF } from '@/lib/assets';
 
 export function AboutHero() {
   const t = useTranslations('AboutPage');
@@ -18,11 +19,12 @@ export function AboutHero() {
         {/* Image — left column */}
         <div className="relative h-[400px] w-full overflow-hidden sm:h-[500px] lg:h-[928px] lg:w-[38%]">
           <Image
-            src="/nosotros-hero.png"
-            alt=""
+            src={ABOUT_GIF}
+            alt="About Hero"
             fill
+            unoptimized
             className="object-cover"
-            priority
+            sizes="(min-width: 1024px) 38vw, 100vw"
           />
         </div>
 
@@ -36,11 +38,11 @@ export function AboutHero() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1, ease: 'easeIn' }}
           >
-            <p className="font-secondary text-[20px] font-normal md:text-[25px] xl:text-[35px]">
+            <p className="font-secondary text-[20px] font-normal md:text-[25px]">
               [{t('whoWeAreTitle').toLowerCase()}]
             </p>
 
-            <div className="font-sans text-[20px] leading-normal md:text-[28px] lg:text-[35px] xl:text-[42px]">
+            <div className="font-sans text-[20px] leading-normal md:text-[28px] lg:text-[35px]">
               <p className="mb-4">{t('whoWeAreParagraph1')}</p>
               <p>
                 {t('whoWeAreParagraph2Before')}

@@ -18,11 +18,11 @@ export function AboutStory() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: 'easeIn' }}
         >
-          <p className="font-secondary text-[20px] font-normal md:text-[25px] xl:text-[35px]">
+          <p className="font-secondary text-[20px] font-normal md:text-[25px]">
             [{t('ourStoryTitle').toLowerCase()}]
           </p>
 
-          <div className="font-sans text-[20px] leading-normal md:text-[28px] lg:text-[35px] xl:text-[42px]">
+          <div className="font-sans text-[20px] leading-normal md:text-[28px] lg:text-[35px]">
             <p className="mb-8">{t('ourStoryParagraph1')}</p>
             <p>{t('ourStoryParagraph2')}</p>
           </div>

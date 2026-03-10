@@ -19,7 +19,6 @@ export function WorkDetailHero({
         <video
           src={heroVideoUrl}
           autoPlay
-          muted
           loop
           playsInline
           poster={portadaUrl}

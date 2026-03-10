@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useContactModal } from '@/lib/contact-modal-context';
@@ -39,7 +39,7 @@ export function ContactModal() {
     }
   }, [isOpen]);
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus('sending');
     const formData = new FormData(e.currentTarget);

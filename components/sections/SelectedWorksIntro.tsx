@@ -1,9 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Link } from '@/i18n/navigation';
 import { SectionFixedBar } from './SectionFixedBar';
 
 export function SelectedWorksIntro() {

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Hero } from '@/components/Hero';
-import { SelectedWorksIntro } from '@/components/sections/SelectedWorksIntro';
+import { HomeSelectedWorks } from '@/components/sections/HomeSelectedWorks';
 import { SectionClients } from '@/components/sections/SectionClients';
 
 type Props = {
@@ -23,7 +23,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <Hero />
-      <SelectedWorksIntro />
+      <HomeSelectedWorks locale={locale} />
       <SectionClients />
     </>
   );

@@ -43,10 +43,7 @@ export async function Footer() {
 
   return (
     <footer
-      className="w-full bg-black text-white"
-      style={{
-        clipPath: 'polygon(0 17%, 75% 17%, 76.5% 0, 100% 0, 100% 100%, 0 100%)',
-      }}
+      className="footer-clip w-full bg-black text-white"
     >
       <div className="flex w-full flex-col gap-8 px-4 pb-12 pt-24 md:flex-row md:items-end md:gap-[151px] md:px-[50px] md:pt-[120px] md:pb-[50px]">
         {/* Copyright */}

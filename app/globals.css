@@ -47,3 +47,10 @@ header[data-hero="true"] button[class*="border-black"]:not([data-mobile-menu] *)
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ─── Footer: diagonal clip only on desktop ──────────────── */
+@media (min-width: 768px) {
+  .footer-clip {
+    clip-path: polygon(0 17%, 75% 17%, 76.5% 0, 100% 0, 100% 100%, 0 100%);
+  }
+}

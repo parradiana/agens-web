@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
-import { SectionFixedBar } from './SectionFixedBar';
 import { CLIENT_LOGOS } from '@/lib/assets';
 
 const ROW_1 = CLIENT_LOGOS.slice(0, 11);
@@ -61,8 +60,6 @@ export function SectionClients() {
         </div>
 
       </motion.div>
-
-      <SectionFixedBar />
     </section>
   );
 }

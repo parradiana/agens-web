@@ -35,8 +35,8 @@ function WorkCard({ work, index, locale, viewMoreLabel }: WorkCardProps) {
       <div
         className={
           isLeft
-            ? 'ml-[4%] mr-auto w-[48vw] max-w-[680px]'
-            : 'ml-auto mr-[4%] w-[44vw] max-w-[620px]'
+            ? 'mx-[4%] w-auto md:mx-0 md:ml-[4%] md:mr-auto md:w-[48vw] md:max-w-[680px]'
+            : 'mx-[4%] w-auto md:mx-0 md:ml-auto md:mr-[4%] md:w-[44vw] md:max-w-[620px]'
         }
       >
         <Link
@@ -49,12 +49,12 @@ function WorkCard({ work, index, locale, viewMoreLabel }: WorkCardProps) {
               style={{ y }}
               className="absolute inset-x-0 -top-[80px] -bottom-[80px]"
             >
-              {work.portadaUrl ? (
+              {work.previewUrl ? (
                 <Image
-                  src={work.portadaUrl}
+                  src={work.previewUrl}
                   alt={`${work.brand} — ${title}`}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 90vw, 48vw"
                 />
               ) : (
@@ -65,11 +65,11 @@ function WorkCard({ work, index, locale, viewMoreLabel }: WorkCardProps) {
 
           {/* Card info — brand left, title + arrow + cta right */}
           <div className="mt-4 flex items-start justify-between gap-6">
-            <span className="shrink-0 font-secondary text-[30px] font-semibold leading-none text-black">
+            <span className="shrink-0 font-secondary text-[20px] font-semibold leading-none text-black md:text-[30px]">
               [{work.brand}]
             </span>
             <div className="flex min-w-0 flex-1 flex-col gap-[6px]">
-              <p className="font-sans text-[20px] leading-[23px] text-black">{title}</p>
+              <p className="font-sans text-[16px] leading-[19px] text-black md:text-[20px] md:leading-[23px]">{title}</p>
               {/* Full-width arrow */}
               <div className="flex w-full items-center gap-1" aria-hidden="true">
                 <div className="flex-1 border-t border-black" />
@@ -83,7 +83,7 @@ function WorkCard({ work, index, locale, viewMoreLabel }: WorkCardProps) {
                   />
                 </svg>
               </div>
-              <span className="font-sans text-[20px] leading-[23px] text-black">
+              <span className="font-sans text-[16px] leading-[19px] text-black md:text-[20px] md:leading-[23px]">
                 {viewMoreLabel}.
               </span>
             </div>
@@ -108,7 +108,7 @@ export function HomeSelectedWorksClient({
   sectionLabel,
 }: Props) {
   return (
-    <section id="trabajos-seleccionados" className="relative bg-off-white">
+    <section id="trabajos-seleccionados" className="relative overflow-x-hidden bg-off-white">
       {/* Sticky background layer — stays fixed while works scroll over it */}
       <div
         className="pointer-events-none sticky top-0 z-[1] flex h-screen items-center justify-center"

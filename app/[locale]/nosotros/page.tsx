@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { AboutHero } from '@/components/sections/AboutHero';
-import { AboutStory } from '@/components/sections/AboutStory';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,7 +22,6 @@ export default async function NosotrosPage({ params }: Props) {
   return (
     <>
       <AboutHero />
-      <AboutStory />
     </>
   );
 }

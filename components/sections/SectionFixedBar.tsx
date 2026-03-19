@@ -12,7 +12,7 @@ export function SectionFixedBar() {
   return (
     <div className="absolute bottom-0 left-0 flex w-full items-center justify-between px-4 py-6 md:px-[50px] md:py-[35px]">
       {/* Tagline */}
-      <p className="hidden font-sans text-[18px] font-normal leading-tight text-black md:block md:max-w-[667px] md:text-[25px]">
+      <p className="max-w-[65%] font-sans text-[14px] font-normal leading-tight text-black md:max-w-[667px] md:text-[25px]">
         {t('tagline')}
       </p>
 

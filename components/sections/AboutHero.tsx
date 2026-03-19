@@ -16,8 +16,8 @@ export function AboutHero() {
   return (
     <section className="relative bg-off-white pt-[20px] md:pt-[30px]">
       <Container className="relative flex flex-col gap-8 lg:flex-row lg:gap-0">
-        {/* Image — left column */}
-        <div className="relative h-[400px] w-full overflow-hidden sm:h-[500px] lg:h-[928px] lg:w-[38%]">
+        {/* Image — left column, sticky on desktop */}
+        <div className="relative h-[400px] w-full overflow-hidden sm:h-[500px] lg:sticky lg:top-[129px] lg:h-[928px] lg:w-[38%] lg:self-start">
           <Image
             src={ABOUT_GIF}
             alt="About Hero"
@@ -28,9 +28,9 @@ export function AboutHero() {
           />
         </div>
 
-        {/* Right column — text + arrow/CTA */}
-        <div className="flex flex-col justify-between lg:w-[55%] lg:ml-auto">
-          {/* Text */}
+        {/* Right column — all text content scrolls alongside sticky gif */}
+        <div className="flex flex-col lg:w-[55%] lg:ml-auto">
+          {/* Who we are */}
           <motion.div
             className="flex flex-col gap-[34px] lg:pt-[40px]"
             initial={{ opacity: 0 }}
@@ -52,9 +52,8 @@ export function AboutHero() {
             </div>
           </motion.div>
 
-          {/* Arrow + CTA — aligned to bottom of image */}
-          <div className="flex items-center justify-between pt-8 pb-4 lg:pt-0 lg:pb-0">
-            {/* Scroll down arrow */}
+          {/* Arrow + CTA */}
+          <div className="flex items-center justify-between pt-8 pb-4 lg:pt-16 lg:pb-0">
             <button
               type="button"
               onClick={() => {
@@ -83,7 +82,6 @@ export function AboutHero() {
               </svg>
             </button>
 
-            {/* CTA button */}
             <button
               onClick={openModal}
               className="relative flex h-[40px] items-center md:h-[50px]"
@@ -91,7 +89,6 @@ export function AboutHero() {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              {/* Expanded background shape */}
               <div
                 className="absolute right-0 top-0 h-full overflow-hidden"
                 style={{
@@ -120,7 +117,6 @@ export function AboutHero() {
                 </span>
               </div>
 
-              {/* "A" logo */}
               <svg
                 width="49"
                 height="50"
@@ -140,6 +136,25 @@ export function AboutHero() {
               </svg>
             </button>
           </div>
+
+          {/* Our Story — continues in the same right column */}
+          <motion.div
+            id="nuestra-historia"
+            className="flex flex-col gap-[34px] pt-16 pb-32 scroll-mt-[100px] lg:pt-24"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: 'easeIn' }}
+          >
+            <p className="font-secondary text-[20px] font-normal md:text-[25px]">
+              [{t('ourStoryTitle').toLowerCase()}]
+            </p>
+
+            <div className="font-sans text-[20px] leading-normal md:text-[28px] lg:text-[35px]">
+              <p className="mb-8">{t('ourStoryParagraph1')}</p>
+              <p>{t('ourStoryParagraph2')}</p>
+            </div>
+          </motion.div>
         </div>
       </Container>
     </section>

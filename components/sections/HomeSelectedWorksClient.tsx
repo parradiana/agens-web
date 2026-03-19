@@ -31,12 +31,12 @@ function WorkCard({ work, index, locale, viewMoreLabel }: WorkCardProps) {
   const title = work.title[locale as 'es' | 'en'];
 
   return (
-    <motion.div ref={ref} style={{ opacity }} className="py-[15vh]">
+    <motion.div ref={ref} style={{ opacity }} className="md:py-[15vh]">
       <div
         className={
           isLeft
-            ? 'mx-[4%] w-auto md:mx-0 md:ml-[4%] md:mr-auto md:w-[48vw] md:max-w-[680px]'
-            : 'mx-[4%] w-auto md:mx-0 md:ml-auto md:mr-[4%] md:w-[44vw] md:max-w-[620px]'
+            ? 'md:ml-[4%] md:mr-auto md:w-[48vw] md:max-w-[680px]'
+            : 'md:ml-auto md:mr-[4%] md:w-[44vw] md:max-w-[620px]'
         }
       >
         <Link
@@ -54,7 +54,7 @@ function WorkCard({ work, index, locale, viewMoreLabel }: WorkCardProps) {
                   src={work.previewUrl}
                   alt={`${work.brand} — ${title}`}
                   fill
-                  className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 90vw, 48vw"
                 />
               ) : (
@@ -108,14 +108,11 @@ export function HomeSelectedWorksClient({
   sectionLabel,
 }: Props) {
   return (
-    <section id="trabajos-seleccionados" className="relative overflow-x-hidden bg-off-white">
-      {/* Sticky background layer — stays fixed while works scroll over it */}
-      <div
-        className="pointer-events-none sticky top-0 z-[1] flex h-screen items-center justify-center"
-        aria-hidden="true"
-      >
+    <section id="trabajos-seleccionados" className="relative bg-off-white">
+      {/* Mobile: simple title above cards */}
+      <div className="flex items-center justify-center py-16 md:hidden">
         <motion.p
-          className="font-sans text-[20px] font-normal text-black md:text-[25px]"
+          className="font-sans text-[20px] font-normal text-black"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -123,15 +120,10 @@ export function HomeSelectedWorksClient({
         >
           {sectionLabel}
         </motion.p>
-
-        {/* Tagline + contact CTA fixed at bottom */}
-        <div className="pointer-events-auto absolute bottom-0 left-0 w-full">
-          <SectionFixedBar />
-        </div>
       </div>
 
-      {/* Works layer — scrolls over the sticky background */}
-      <div className="relative z-[2] -mt-[100vh] pb-[30vh] pt-[70vh]">
+      {/* Mobile: cards without sticky effect */}
+      <div className="flex flex-col gap-12 px-[4%] md:hidden">
         {works.map((work, i) => (
           <WorkCard
             key={work.slug}
@@ -141,6 +133,48 @@ export function HomeSelectedWorksClient({
             viewMoreLabel={viewMoreLabel}
           />
         ))}
+      </div>
+
+      {/* Mobile: fixed bar after cards */}
+      <div className="pb-8 pt-20 md:hidden">
+        <SectionFixedBar />
+      </div>
+
+      {/* Desktop: sticky background + floating cards effect */}
+      <div className="hidden md:block">
+        {/* Sticky background layer — label + fixed bar stay behind while works scroll over */}
+        <div
+          className="pointer-events-none sticky top-0 z-[1] flex h-screen items-center justify-center"
+          aria-hidden="true"
+        >
+          <motion.p
+            className="font-sans text-[25px] font-normal text-black"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1, ease: 'easeIn' }}
+          >
+            {sectionLabel}
+          </motion.p>
+
+          {/* Tagline + contact CTA — part of the sticky background */}
+          <div className="pointer-events-auto absolute bottom-0 left-0 w-full">
+            <SectionFixedBar />
+          </div>
+        </div>
+
+        {/* Works layer — scrolls over the sticky background (label + fixed bar) */}
+        <div className="relative z-[2] -mt-[100vh] pb-[30vh] pt-[70vh]">
+          {works.map((work, i) => (
+            <WorkCard
+              key={work.slug}
+              work={work}
+              index={i}
+              locale={locale}
+              viewMoreLabel={viewMoreLabel}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

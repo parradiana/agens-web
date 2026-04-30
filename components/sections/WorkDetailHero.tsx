@@ -23,17 +23,19 @@ export function WorkDetailHero({
 
       {heroVideoUrl ? (
         <video
-          src={heroVideoUrl}
           autoPlay
+          muted
           loop
           playsInline
           poster={portadaUrl}
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 h-full w-full object-cover"
           onPlaying={() => {
             setIsLoading(false);
           }}
-        />
+        >
+          <source src={heroVideoUrl} type="video/mp4" />
+        </video>
       ) : portadaUrl ? (
         <ImageWithSkeleton
           src={portadaUrl}

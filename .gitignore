@@ -47,7 +47,3 @@ next-env.d.ts
 .agents/
 skills-lock.json
 .claude/
-
-# design docs (uso interno, no van al repo)
-COMPONENTS.md
-DESIGN_SYSTEM.md

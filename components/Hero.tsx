@@ -1,13 +1,10 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { HERO_REEL_VIDEO } from '@/lib/assets';
-import { PageLoading } from '@/components/ui/PageLoading';
+import { HERO_REEL_VIDEO, HERO_REEL_POSTER } from '@/lib/assets';
 
 export function Hero() {
   const t = useTranslations('Hero');
-  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <section
@@ -15,22 +12,19 @@ export function Hero() {
       className="relative -mt-[129px] h-screen w-full overflow-hidden"
       aria-label="Hero"
     >
-      {isLoading && <PageLoading />}
-
-      {/* Background video */}
+      {/* Background video — poster shows instantly while video buffers */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src={HERO_REEL_VIDEO}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
+        poster={HERO_REEL_POSTER}
         aria-hidden="true"
-        onCanPlay={() => {
-          setIsLoading(false);
-        }}
-      />
+      >
+        <source src={HERO_REEL_VIDEO} type="video/mp4" />
+      </video>
 
       {/* Scroll indicator */}
       <button

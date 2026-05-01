@@ -18,7 +18,7 @@ type Props = {
 export async function generateStaticParams() {
   const works = await sanityFetch<{ slug: string }[]>({
     query: WORK_SLUGS_QUERY,
-    tags: ['work'],
+    revalidate: 60,
   }).catch(() => []);
 
   return works.map((w) => ({ id: w.slug }));
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = await sanityFetch<WorkDetail | null>({
     query: WORK_DETAIL_QUERY,
     params: { slug: id },
-    tags: [`work:${id}`],
+    revalidate: 60,
   }).catch(() => null);
 
   if (!work) {
@@ -54,12 +54,12 @@ export default async function TrabajoPage({ params }: Props) {
     sanityFetch<WorkDetail | null>({
       query: WORK_DETAIL_QUERY,
       params: { slug: id },
-      tags: [`work:${id}`],
+      revalidate: 60,
     }).catch(() => null),
     sanityFetch<WorkListItem[]>({
       query: OTHER_WORKS_QUERY,
       params: { slug: id },
-      tags: ['work'],
+      revalidate: 60,
     }).catch(() => []),
   ]);
 

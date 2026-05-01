@@ -2,7 +2,7 @@ import { groq } from 'next-sanity'
 
 // Home - trabajos destacados para la grilla
 export const FEATURED_WORKS_QUERY = groq`
-  *[_type == "work" && featured == true] | order(order asc) {
+  *[_type == "work" && featured == true] | order(_createdAt desc) {
     "slug": slug.current,
     brand,
     title,
@@ -46,7 +46,7 @@ export const WORK_DETAIL_QUERY = groq`
 
 // Para el footer/nav del detalle: otros trabajos (excluyendo el actual)
 export const OTHER_WORKS_QUERY = groq`
-  *[_type == "work" && slug.current != $slug] | order(order asc) {
+  *[_type == "work" && slug.current != $slug] | order(_createdAt desc) {
     "slug": slug.current,
     brand,
     title,

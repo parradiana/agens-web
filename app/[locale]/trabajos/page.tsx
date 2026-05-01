@@ -27,7 +27,7 @@ export default async function TrabajosPage({ params }: Props) {
 
   const works = await sanityFetch<WorkListItem[]>({
     query: ALL_WORKS_QUERY,
-    tags: ['work'],
+    revalidate: 60,
   }).catch(() => [] as WorkListItem[]);
 
   return (

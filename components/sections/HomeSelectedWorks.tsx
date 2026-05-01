@@ -13,7 +13,7 @@ export async function HomeSelectedWorks({ locale }: Props) {
 
   const works = await sanityFetch<FeaturedWork[]>({
     query: FEATURED_WORKS_QUERY,
-    tags: ['work'],
+    revalidate: 60,
   }).catch(() => [] as FeaturedWork[]);
 
   if (works.length === 0) {

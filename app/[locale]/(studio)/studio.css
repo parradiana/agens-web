@@ -1,0 +1,15 @@
+body > header,
+body > footer {
+  display: none !important;
+}
+
+main {
+  padding-top: 0 !important;
+  flex: 1;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+}
